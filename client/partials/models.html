@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+	<head>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+			
+		
+		<div ng-repeat="image in images1">
+			<a class="added-image" href="{{image}}" data-lightbox="models" style="margin-left: auto;
+    margin-right: auto;">
+				<img src="{{image}}"></img>
+			</a>
+		</div>
+
+
+
+
+		<div ng-repeat="video in videos1"> 
+			<video class="added-image" href="{{image}}" 
+				
+			 	 class="video-js vjs-default-skin" controls>
+				<source src="{{video.mp4}" type="video/mp4">
+				<source src="{{video.webm}}" type="video/webm">
+				<source src="{{video.ogg}}" type="video/ogv">
+
+				<object data = "{{video.mp4}}" width="320" height="240">
+					<embed src="{{video.mp4}}" width="320" height="240">		
+				</object>
+			</video>
+		</div>
+
+		<div ng-repeat="image in images2">
+			<a class="added-image" href="{{image}}" data-lightbox="models" style="margin-left: auto;
+    margin-right: auto;">
+				<img src="{{image}}"></img>
+			</a>
+		</div>
+
+		<div ng-repeat="video in videos2"> 
+			<video href="{{image}}" class="video-js vjs-default-skin" controls>
+				<source src="{{video.mp4}" type="video/mp4">
+				<source src="{{video.webm}}" type="video/webm">
+				<source src="{{video.ogg}}" type="video/ogv">
+
+				<object data = "{{video.mp4}}" width="320" height="240">
+					<embed src="{{video.mp4}}" width="320" height="240">		
+				</object>
+			</video>
+		</div>
+
+		<div ng-repeat="image in images3">
+			<a class="added-image" href="{{image}}" data-lightbox="models" style="margin-left: auto;
+    margin-right: auto;">
+				<img src="{{image}}"></img>
+			</a>
+		</div>
+
+		<div ng-repeat="video in videos3"> 
+			<video href="{{image}}" class="video-js vjs-default-skin" controls>
+				<source src="{{video.mp4}" type="video/mp4">
+				<source src="{{video.webm}}" type="video/webm">
+				<source src="{{video.ogg}}" type="video/ogv">
+
+				<object data = "{{video.mp4}}" width="320" height="240">
+					<embed src="{{video.mp4}}" width="320" height="240">		
+				</object>
+			</video>
+		</div>
+		
+		<div ng-repeat="image in images4">
+			<a class="added-image" href="{{image}}" data-lightbox="models" style="margin-left: auto;
+    margin-right: auto;">
+				<img src="{{image}}"></img>
+			</a>
+		</div>
+
+	</body>
+</html>

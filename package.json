@@ -1,0 +1,13 @@
+{
+  "name": "Cody-Bartman-Portfolio",
+  "version": "0.0.0",
+  "description": "This example app is so cool.",
+  "main": "server.js",
+  "author": "Jordan VanderZwaag",
+  "license": "MIT",
+  "dependencies": {
+    "http": "0.0.0",
+    "path": "~0.4.9",
+    "express": "~3.4.8"
+  }
+}
