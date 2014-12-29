@@ -6,8 +6,27 @@
   "author": "Jordan VanderZwaag",
   "license": "MIT",
   "dependencies": {
+    "coffee-script": "^1.8.0",
+    "express": "~3.4.8",
+    "fs": "0.0.2",
     "http": "0.0.0",
+    "js-yaml": "^3.2.5",
+    "node-uuid": "^1.4.2",
     "path": "~0.4.9",
-    "express": "~3.4.8"
-  }
+    "reload": "^0.1.0"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "devDependencies": {
+    "coffee-script": "^1.8.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jvanderz22/cody"
+  },
+  "bugs": {
+    "url": "https://github.com/jvanderz22/cody/issues"
+  },
+  "homepage": "https://github.com/jvanderz22/cody"
 }
