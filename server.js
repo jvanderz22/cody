@@ -12,6 +12,7 @@ var image = require('./server/image')
 
 var app = express()
 
+
 var clientDir = path.join(__dirname, 'client')
 
 app.use(express.favicon("/client/images/favicon/favicon.ico"))
