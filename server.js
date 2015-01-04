@@ -28,6 +28,7 @@ app.configure(function() {
   }))
   console.log(__dirname)
   app.use("/", express.static(clientDir))
+  app.use(express.static(clientDir + '/assets'))
 })
 
 
