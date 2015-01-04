@@ -27,7 +27,7 @@ app.configure(function() {
     project: path.join(__dirname, 'client/assets')
   }))
   console.log(__dirname)
-  app.use(express.static(clientDir))
+  app.use("/", express.static(clientDir))
 })
 
 
