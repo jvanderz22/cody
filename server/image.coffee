@@ -7,12 +7,14 @@ imagesFilePath = './data/images.yml'
 
 getImages = () ->
   try
+    console.log('attempting yaml get')
     images = yaml.safeLoad(fs.readFileSync(imagesFilePath))
     for category in categories
       unless images[category]?
         images[category] = []
     images
   catch e
+    console.log('yaml get failed')
     throw 'Unable to load images'
 
 validPost = (category, url, ranking) ->
@@ -39,6 +41,7 @@ createImageWithId = (url, ranking, id, category, video = false) ->
   }
 
 saveYAML = (object) ->
+  console.log('attempting yaml save')
   yamlObj = yaml.safeDump(object)
   fs.writeFileSync(imagesFilePath, yamlObj)
   console.log(yamlObj)
@@ -94,12 +97,14 @@ exports.get = (req, res) ->
     else
       res.send(images)
   catch e
+    console.log('get failed')
     res.send(500, e)
 
 exports.post = (req, res) ->
   try
     images = getImages()
   catch e
+    console.log('post failed')
     res.send(500, e)
     return
   console.log(req.body)
