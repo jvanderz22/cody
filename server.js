@@ -30,10 +30,9 @@ app.configure(function() {
   app.use("/", express.static(clientDir))
   console.log(__dirname)
   console.log("EREREWRerewerererwerewwrwrere")
-  app.use(express.static(__dirname + '/public'))
 })
 
-
+app.use(express.static(__dirname + '/public'))
 app.use(compass({cwd: clientDir}))
 
 app.configure('development', function(){
