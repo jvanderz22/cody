@@ -7,6 +7,7 @@ var path = require('path')
 var http = require('http')
 var reload = require('reload')
 var compass = require('node-compass')
+var serveImage = require('serve-index')
 
 var image = require('./server/image')
 

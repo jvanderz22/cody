@@ -15,7 +15,8 @@
     "node-sass": "^2.0.0-beta",
     "node-uuid": "^1.4.2",
     "path": "~0.4.9",
-    "reload": "^0.1.0"
+    "reload": "^0.1.0",
+    "serve-index": "^1.6.0"
   },
   "scripts": {
     "start": "node server.js"
