@@ -24,11 +24,11 @@ app.configure(function() {
   app.use(express.urlencoded());
   app.use(app.router)
   app.use(compass({
-    project: path.join(__dirname, 'client/assets')
+    project: path.join(__dirname, '/public')
   }))
   console.log(__dirname)
   app.use("/", express.static(clientDir))
-  app.use(express.static(clientDir + '/assets'))
+  app.use(express.static(__dirname + '/public'))
 })
 
 
