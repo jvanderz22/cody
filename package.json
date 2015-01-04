@@ -11,6 +11,8 @@
     "fs": "0.0.2",
     "http": "0.0.0",
     "js-yaml": "^3.2.5",
+    "node-compass": "^0.2.3",
+    "node-sass": "^2.0.0-beta",
     "node-uuid": "^1.4.2",
     "path": "~0.4.9",
     "reload": "^0.1.0"

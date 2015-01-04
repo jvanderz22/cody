@@ -1,34 +1,27 @@
-var app = angular.module('codyApp',['ngRoute', 'ngSanitize']);
+var app = angular.module('codyApp',['ngRoute']);
 
-
-app.config(['$routeProvider', 
+app.config(['$routeProvider',
 	function($routeProvider) {
-	 // delete $httpProvider.defaults.headers.common["X-Requested-With"];
 	  $routeProvider
 	    .when('/home', {
-	    	//templateUrl: 'http://codybartman.weebly.com/files/theme/images.html',
 	    	controller: 'HomeController',
-	    	templateUrl: 'partials/images.html',
+	    	templateUrl: 'partials/home.html',
 	    })
 	    .when('/3d-models', {
-	    	//templateUrl: 'http://codybartman.weebly.com/files/theme/images.html',
 	    	controller: 'ModelsController',
-	    	templateUrl: 'partials/models.html',
+	    	templateUrl: 'partials/images.html',
 
 	    })
 	    .when('/photography',
 	    {
-	    	//templateUrl: 'http://codybartman.weebly.com/files/theme/images.html',
 	    	controller: 'PhotographyController',
 	    	templateUrl: 'partials/images.html',
 	    })
 	    .when('/2d-art', {
-	    	//templateUrl: 'http://codybartman.weebly.com/files/theme/images.html',
 	    	controller: 'ArtController',
 	    	templateUrl: 'partials/images.html',
 	    })
 	    .when('/resume', {
-	    	//templateUrl: 'http://codybartman.weebly.com/files/theme/resume.html',
 	    	controller: 'ResumeController',
 	    	templateUrl: 'partials/resume.html',
 	    })
@@ -36,9 +29,9 @@ app.config(['$routeProvider',
 	    	controller: 'GameController',
 	    	templateUrl: 'partials/game.html',
 	    })
+      .when('/edit', {
+        controller: 'EditController',
+        templateUrl: 'partials/edit.html'
+      })
 	    .otherwise ({ redirectTo: '/home' });
 }]);
-
-
-
-

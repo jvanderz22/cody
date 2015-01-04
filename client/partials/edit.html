@@ -1,0 +1,35 @@
+<!doctype HTML>
+<head> </head>
+  <body>
+    <div>
+      <h3> Add New Image </h3>
+      <form>
+        URL: <input type="text" name="URL" ng-model="newImage.url"> <br/>
+        Ranking: <input type="number" name="Ranking" ng-model="newImage.ranking"> <br/>
+        Video: <input name="Video" type="checkbox" ng-model="newImage.video"><br/>
+        Category: <select name="Category" ng-options="type for type in imageTypes" ng-model="newImage.category"> </select><br/>
+        <button type="button" class="btn btn-primary" ng-click="submitImage(newImage)"> Submit </button>
+      </form>
+    </div>
+
+    <div ng-repeat="category in imageCategories">
+      <h4> {{category.type}} </h4>
+      <div class="row edit-row" ng-repeat="image in category.images">
+        <div class="span6">
+          <img class="edit-image" src="{{image.url}}">
+        </div>
+        <div class="span6">
+          <h4> Edit Attributes </h4>
+          <form class="edit-form">
+            URL: <input type="text" name="URL" ng-model="image.url"> <br/>
+            Ranking: <input type="number" name-"Ranking" ng-model="image.ranking"> <br/>
+            Video <input name="Video" type="checkbox" ng-model="image.video"> <br/>
+            Category: <select name="Category" ng-options="type for type in imageTypes" ng-model="image.category"> </select> <br/>
+            <button type="submit" class="btn btn-primary" ng-click="updateImage(image)"> Update </button>
+            <button type="submit" class="btn btn-danger" ng-click="deleteImage(image)"> Delete </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

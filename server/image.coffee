@@ -20,18 +20,22 @@ validPost = (category, url, ranking) ->
   return false unless category in categories
   typeof(ranking) is 'number'
 
-createImage = (url, ranking) ->
+createImage = (url, ranking, category, video = false) ->
   {
     id: uuid.v1(),
     url: url,
-    ranking: ranking
+    ranking: ranking,
+    category: category,
+    video: video
   }
 
-createImageWithId = (url, ranking, id) ->
+createImageWithId = (url, ranking, id, category, video = false) ->
   {
     id: id,
     url: url,
-    ranking: ranking
+    ranking: ranking,
+    category: category,
+    video: video
   }
 
 saveYAML = (object) ->
@@ -77,7 +81,18 @@ findImage = (id) ->
 
 exports.get = (req, res) ->
   try
-    res.send(getImages())
+    category = req.query.category
+    images = getImages()
+    if category?
+      responseObj = {}
+      if category of images
+        responseObj[category] =  images[category]
+        res.send(responseObj)
+      else
+        responseObj[category] = []
+        res.send(responseObj)
+    else
+      res.send(images)
   catch e
     res.send(500, e)
 
@@ -87,16 +102,17 @@ exports.post = (req, res) ->
   catch e
     res.send(500, e)
     return
-
+  console.log(req.body)
   category = req.body.category
   url = req.body.url
   ranking = req.body.ranking
+  video = if req.body.video? then req.body.video else false
 
   unless validPost(category, url, ranking)
     res.send(400, 'Valid category, url, and ranking parametes required')
     return
 
-  newImage = createImage(url, ranking)
+  newImage = createImage(url, ranking, category, video)
   saveImages(images, category, newImage)
   res.send(images)
 
@@ -111,6 +127,7 @@ exports.put = (req, res) ->
   category = req.body.category
   url = req.body.url
   ranking = req.body.ranking
+  video = if req.body.video? then req.body.video else false
   id = req.params.id
 
   unless id?
@@ -127,7 +144,7 @@ exports.put = (req, res) ->
     res.send(404, e)
     return
 
-  editedImage = createImageWithId(url, ranking, id)
+  editedImage = createImageWithId(url, ranking, id, category, video)
   saveImages(images, category, editedImage)
   res.send(200, editedImage)
 

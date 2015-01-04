@@ -1,15 +1,7 @@
 <!DOCTYPE html>
-	<head>
-		<style>
-			
-		</style>
-	</head>
 	<body>
-		<div ng-repeat="image in images">
-			<a class="added-image" href="{{image}}" data-lightbox="models">
-				<img src="{{image}}"></img>
-			</a>
-		</div>
-		
+    <div class="image-repeat" ng-repeat="image in images">
+      <img src="{{image.url}}"></img>
+    </div>
 	</body>
 </html>

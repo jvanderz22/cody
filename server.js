@@ -6,6 +6,8 @@ var express = require('express')
 var path = require('path')
 var http = require('http')
 var reload = require('reload')
+var compass = require('node-compass')
+
 var image = require('./server/image')
 
 var app = express()
@@ -13,7 +15,6 @@ var app = express()
 var clientDir = path.join(__dirname, 'client')
 
 app.use(express.favicon("/client/images/favicon/favicon.ico"))
-
 app.configure(function() {
   app.set('port', process.env.PORT || 3000)
   app.use(express.favicon())
@@ -21,9 +22,15 @@ app.configure(function() {
   app.use(express.json());
   app.use(express.urlencoded());
   app.use(app.router)
-  //app.use(express.multipart());
+  app.use(compass({
+    project: path.join(__dirname, 'client/assets')
+  }))
+  console.log(__dirname)
   app.use(express.static(clientDir))
 })
+
+
+app.use(compass({cwd: clientDir}))
 
 app.configure('development', function(){
   app.use(express.errorHandler());
