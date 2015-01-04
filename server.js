@@ -26,8 +26,9 @@ app.configure(function() {
   app.use(compass({
     project: path.join(__dirname, '/public')
   }))
-  console.log(__dirname)
   app.use("/", express.static(clientDir))
+  console.log(__dirname)
+  console.log("EREREWRerewerererwerewwrwrere")
   app.use(express.static(__dirname + '/public'))
 })
 
