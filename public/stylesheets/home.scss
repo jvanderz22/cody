@@ -1,8 +1,9 @@
 .image-container {
   margin-top: 10px;
   margin-bottom: 30px;
+  display: block;
+  text-align: center;
   .image-repeat {
     max-width: 400px;
-    max-height: 2px;
   }
 }

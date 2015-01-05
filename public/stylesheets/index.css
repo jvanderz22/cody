@@ -30,17 +30,8 @@ h1 {
 
 }
 
-.row-fluid > .span-fixed-sidebar {
+.span-fixed-sidebar {
     margin-left: 290px;
-}
-
-.fa-stack{
-    border-color: white;
-    opacity: 0.8;
-}
-
-.fa-stack:hover{
-    opacity: 1;
 }
 
 .edit-image {

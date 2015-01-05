@@ -1,3 +1,4 @@
+<!doctype html>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -7,11 +8,16 @@
     <link href="images/favicon/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css styles/main.css -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.1/angular.js"></script>
     <script src="ui-bootstrap-tpls-0.10.0.min.js"></script>
+    <script type="text/javascript" src="angular-ui-utils/ui-utils.js"></script>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"> </link>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"></link>
-    <link rel="stylesheet" href="stylesheets/index.css"> </link> 
+    <link rel="stylesheet" href="stylesheets/home.css"> </link> 
+    <link rel="stylesheet" href="stylesheets/sidebar.css"> </link>
+    <link rel="stylesheet" href="stylesheets/main.css"> </link>
+    <link rel="stylesheet" href="stylesheets/index.css"></link>
     <!--    <script src="/videogular/videogular.js"></script>
     <script src="/videogular/controls.js" type="text/javascript"></script>
     <script src="/videogular/overlay-play.js" type="text/javascript"></script>
@@ -22,28 +28,27 @@
     <!-- endbuild -->
   </head>
   <body ng-app="codyApp">
-       <!-- <link rel="stylesheet" href="assets/stylesheets/home.css"> </link> -->
-     <!-- <link rel="stylesheet" href="lightbox/css/lightbox.css"> </link>
-     <link rel="stylesheet" href="videogular/videogular.css"></link>
-     <script src="lightbox/js/jquery-1.10.2.min.js"></script>
-     <script src="lightbox/js/lightbox-2.6.min.js"></script> -->
-     <script src="angular-route.js"></script>
-     <script src="scripts/app.js"></script>
-     <script src="scripts/controllers.js"></script>
-     <script src="scripts/models.js"></script>
+    <!-- <link rel="stylesheet" href="lightbox/css/lightbox.css"> </link>
+    <link rel="stylesheet" href="videogular/videogular.css"></link>
+    <script src="lightbox/js/jquery-1.10.2.min.js"></script>
+    <script src="lightbox/js/lightbox-2.6.min.js"></script> -->
+    <script src="angular-route.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers.js"></script>
+    <script src="scripts/models.js"></script>
 
-     <!--<script src="scripts/directives/directives.js"></script> -->
-     <!-- endbuild -->
+    <!--<script src="scripts/directives/directives.js"></script> -->
+    <!-- endbuild -->
 
-     <div class="container">
-       <div class="row">
-         <div class="page-header">
-           <h1> Cody Bartman's Portfolio </h1>
+    <div class="container app-container">
+      <div class="row">
+        <div class="page-header">
+          <h1> Cody Bartman's Portfolio </h1>
         </div>
       </div>
       <div class="row">
-        <div class = "col-md-2 col-sm-3 col-xs-5">
-          <div class="sidebar-nav sidebar-nav-fixed">
+        <div class = "col-md-3 col-sm-4">
+          <div class="sidebar-nav sidebar-nav-custom" id="sidebar-nav" ui-scrollfix="+100">
             <ul class="nav nav-pills nav-stacked">
               <li> <a href="#/home"> Home </a> </li>
               <li> <a href="#/3d-models"> 3D Models </a> </li>
@@ -65,26 +70,23 @@
               <li> <a href="http://codybartmandailydrawing.tumblr.com/" target="_blank"> Daily Drawings </a> </li>
             </ul>
 
-            <div class="row">
-              <span>
-                <a href="https://www.facebook.com/cody.m.bartman" style="text-decoration:none; color:inherit;" target="_blank"> 
-                  <span class="fa-stack">
-                    <i class="fa fa-circle fa-stack-2x"> </i>
-                    <i class="fa fa-facebook fa-stack-1x fa-inverse"> </i>
-                  </span>
-                  <!--<img class = "highlightButton"src="http://codybartman.weebly.com/files/theme/facebook.png" style="width:24px; height:20px;"> </img> -->
-                </a>
-                <a href="mailto:hbartmac@ferris.edu"  style="text-decoration:none; color:inherit;">
-                  <span class="fa-stack">
-                    <i class="fa fa-circle fa-stack-2x"></i>
-                    <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
-                  </span>
-                </a>
-              </span>
-            </div>
+            <span>
+              <a href="https://www.facebook.com/cody.m.bartman" style="text-decoration:none; color:inherit;" target="_blank"> 
+                <span class="fa-stack">
+                  <i class="fa fa-circle fa-stack-2x"> </i>
+                  <i class="fa fa-facebook fa-stack-1x fa-inverse"> </i>
+                </span>
+              </a>
+              <a href="mailto:hbartmac@ferris.edu"  style="text-decoration:none; color:inherit;">
+                <span class="fa-stack">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </span>
           </div>
         </div> <!--span3-->
-        <div class = "col-md-10 col-sm-9 col-xs-7" id="content">
+        <div class = "col-md-9 col-sm-8" id="content">
           <div ng-view> </div>
         </div>
       </div>

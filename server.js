@@ -28,6 +28,7 @@ app.configure(function() {
   console.log(__dirname)
   app.use(express.static(__dirname + '/public'))
   console.log("EREREWRerewerererwerewwrwrere")
+  app.use(express.static(__dirname + '/bower_components'))
 })
 
 

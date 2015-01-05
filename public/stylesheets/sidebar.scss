@@ -1,0 +1,30 @@
+.fa-stack {
+  border-color: white;
+  opacity: 0.8;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.sidebar-nav.sidebar-nav-custom {
+  min-width:21.97%;
+  & .sidebar-nav-fixed {
+    top: 10px;
+    position:fixed;
+  }
+  &.ui-scrollfix {
+    position: fixed;
+    top: 5%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .sidebar-nav.sidebar-nav-custom {
+    min-width: auto;
+    &.ui-scrollfix{
+      position: relative;
+      top: auto;
+    }
+  }
+}
