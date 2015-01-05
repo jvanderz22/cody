@@ -24,19 +24,19 @@ app.configure(function() {
   app.use(express.json());
   app.use(express.urlencoded());
   app.use(app.router)
-  app.use(compass({
-    project: path.join(__dirname, '/public')
-  }))
   app.use("/", express.static(clientDir))
   console.log(__dirname)
+  app.use(express.static(__dirname + '/public'))
   console.log("EREREWRerewerererwerewwrwrere")
 })
 
-app.use(express.static(__dirname + '/public'))
-app.use(compass({cwd: clientDir}))
 
 app.configure('development', function(){
+  app.use(compass({
+    project: path.join(__dirname, '/public')
+  }))
   app.use(express.errorHandler());
+  app.use(compass({cwd: clientDir}))
 })
 
 app.get('/', function(req, res) {
