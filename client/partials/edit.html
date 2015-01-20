@@ -16,7 +16,14 @@
       <h4> {{category.type}} </h4>
       <div class="row edit-row" ng-repeat="image in category.images">
         <div class="span6">
-          <img class="edit-image" src="{{image.url}}">
+          <div ng-show="image.video">
+            <iframe title="YouTube video player" class="youtube-video" height="240" width="320"
+              src="{{trustSrc(image.url)}}" frameborder="0" allowfullscreen>
+            </iframe>
+          </div>
+          <div ng-hide="image.video">
+            <img class="edit-image" src="{{image.url}}">
+          </div>
         </div>
         <div class="span6">
           <h4> Edit Attributes </h4>

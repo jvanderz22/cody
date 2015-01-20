@@ -1,5 +1,9 @@
-app.controller('HomeController', function($scope, Image) {
-	Image.getCategoryImages('models').then(function(models) {
+app.controller('HomeController', function($scope, $sce, Image) {
+	$scope.trustSrc = function(src) {
+    return $sce.trustAsResourceUrl(src)
+  }
+
+  Image.getCategoryImages('models').then(function(models) {
     $scope.models = models
   })
   Image.getCategoryImages('photos').then(function(photos) {
@@ -7,23 +11,39 @@ app.controller('HomeController', function($scope, Image) {
   })
 })
 
-app.controller('ModelsController', function($scope, Image) {
-	Image.getCategoryImages('models').then(function(images) {
+app.controller('ModelsController', function($scope, $sce, Image) {
+	$scope.trustSrc = function(src) {
+    return $sce.trustAsResourceUrl(src)
+  }
+
+  Image.getCategoryImages('models').then(function(images) {
     $scope.images = images
   })
 });
 
 
-app.controller('PhotographyController', function($scope, Image) {
-	Image.getCategoryImages('photos').then(function(images) {
+app.controller('PhotographyController', function($scope, $sce, Image) {
+  $scope.trustSrc = function(src) {
+    return $sce.trustAsResourceUrl(src)
+  }
+
+  Image.getCategoryImages('photos').then(function(images) {
     $scope.images = images
   })
 });
 
-app.controller('ResumeController', function($scope) {
+app.controller('ResumeController', function($scope, $sce) {
+  $scope.trustSrc = function(src) {
+    return $sce.trustAsResourceUrl(src)
+  }
 	$scope.resume = "/images/resume/resume.pdf";
 })
-app.controller('EditController', function($scope, $http, $q, Image) {
+
+app.controller('EditController', function($scope, $http, $q, $sce, Image) {
+  $scope.trustSrc = function(src) {
+    return $sce.trustAsResourceUrl(src)
+  }
+
   $scope.imageTypes = ["models", "photos"]
   //extract this to a helper class
   getAllImages = function() {
@@ -48,7 +68,6 @@ app.controller('EditController', function($scope, $http, $q, Image) {
   }
 
   $scope.updateImage = function(image){
-    console.log(image)
     putRequest = $http.put('api/images/' + image.id, image)
     putRequest.success(function(data, status, headers, config) {
       getAllImages()

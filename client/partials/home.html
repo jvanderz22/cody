@@ -2,14 +2,29 @@
 <!-- LOOK AT ME I'M IMPORTANT
 http://angular-ui.github.io/ui-utils/#/scrollfix -->
 <body>
-</div>
+  </div>
     <h3> Models </h3>
     <div class="image-container" ng-repeat="model in models">
-      <img class="image-repeat" src="{{model.url}}"></img>
+      <div ng-show="model.video">
+        <h1> HI </h1>
+        <iframe title="YouTube video player"  class="youtube-video" height="240" width="320"
+          src="{{trustSrc(model.url)}}" frameborder="0" allowfullscreen>
+        </iframe>
+      </div>
+      <div ng-hide='model.video'>
+        <img class="image-repeat" src="{{model.url}}"></img>
+      </div>
     </div>
     <h3> Photos </h3>
-     <div class="image-container" ng-repeat="photo in photos">
-      <img class="image-repeat" src="{{photo.url}}"></img>
+    <div class="image-container" ng-repeat="photo in photos">
+      <div ng-show='photo.video'>
+        <iframe title="YouTube video player"  class="youtube-video" height="240" width="320"
+          src="{{trustSrc(photo.url)}}" frameborder="0" allowfullscreen>
+        </iframe>
+    </div>
+      <div ng-hide='photo.video'>
+        <img class="image-repeat" src="{{photo.url}}"></img>
+      </div>
     </div>
 	</body>
 </html>
