@@ -25,9 +25,7 @@ app.configure(function() {
   app.use(express.urlencoded());
   app.use(app.router)
   app.use("/", express.static(clientDir))
-  console.log(__dirname)
   app.use(express.static(__dirname + '/public'))
-  console.log("EREREWRerewerererwerewwrwrere")
   app.use(express.static(__dirname + '/bower_components'))
 })
 

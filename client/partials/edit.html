@@ -3,19 +3,47 @@
   <body>
     <div>
       <h3> Add New Image </h3>
-      <form>
-        URL: <input type="text" name="URL" ng-model="newImage.url"> <br/>
-        Ranking: <input type="number" name="Ranking" ng-model="newImage.ranking"> <br/>
-        Video: <input name="Video" type="checkbox" ng-model="newImage.video"><br/>
-        Category: <select name="Category" ng-options="type for type in imageTypes" ng-model="newImage.category"> </select><br/>
-        <button type="button" class="btn btn-primary" ng-click="submitImage(newImage)"> Submit </button>
+      <form class="form-horizontal">
+        <div class="form-group">
+          <label for="URL" class="col-sm-2 control-label"> URL: </label>
+          <div class="col-sm-10">
+            <input type="text" name="URL" class="form-control" ng-model="newImage.url">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="Ranking" class="col-sm-2 control-label"> Ranking: </label>
+          <div class="col-sm-10">
+            <input type="number" name="Ranking" class="form-control" ng-model="newImage.ranking">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="Video" class="col-sm-2 control-label">  Video: </label>
+          <div class="col-sm-10">
+            <input name="Video" class="form-control" type="checkbox" ng-model="newImage.video">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="Category" class="col-sm-2 control-label"> Category: </label>
+          <div class="col-sm-10">
+            <select name="Category" class="form-control" ng-options="type for type in imageTypes" ng-model="newImage.category"> </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <button type="button" class="btn btn-primary" ng-click="submitImage(newImage)"> Submit </button>
+          </div>
+        </div>
       </form>
     </div>
 
     <div ng-repeat="category in imageCategories">
       <h4> {{category.type}} </h4>
       <div class="row edit-row" ng-repeat="image in category.images">
-        <div class="col-xs-6">
+        <div class="col-sm-6">
           <div ng-show="image.video">
             <iframe title="YouTube video player" class="youtube-video" height="240" width="320"
               src="{{trustSrc(image.url)}}" frameborder="0" allowfullscreen>
@@ -25,15 +53,43 @@
             <img class="edit-image" src="{{image.url}}">
           </div>
         </div>
-        <div class="col-xs-6">
+        <div class="col-sm-6">
           <h4> Edit Attributes </h4>
-          <form class="edit-form">
-            URL: <input type="text" name="URL" ng-model="image.url"> <br/>
-            Ranking: <input type="number" name-"Ranking" ng-model="image.ranking"> <br/>
-            Video <input name="Video" type="checkbox" ng-model="image.video"> <br/>
-            Category: <select name="Category" ng-options="type for type in imageTypes" ng-model="image.category"> </select> <br/>
-            <button type="submit" class="btn btn-primary" ng-click="updateImage(image)"> Update </button>
-            <button type="submit" class="btn btn-danger" ng-click="deleteImage(image)"> Delete </button>
+          <form class="form-horizontal">
+            <div class="form-group">
+              <label for="URL" class="col-sm-3 control-label"> URL: </label>
+              <div class="col-sm-9">
+                <input type="text" name="URL" class="form-control" ng-model="image.url">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="Ranking" class="col-sm-3 control-label"> Ranking: </label>
+              <div class="col-sm-9">
+                <input type="number" name="Ranking" class="form-control" ng-model="image.ranking">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="Video" class="col-sm-3 control-label"> Video: </label>
+              <div class="col-sm-9">
+                <input name="Video" type="checkbox" ng-model="image.video">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="Category" class="col-sm-3 control-label"> Category: </label>
+              <div class="col-sm-9">
+                <select name="Category" class="form-control" ng-options="type for type in imageTypes" ng-model="image.category"> </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-sm-offset-3 col-sm-9">
+                <button type="button" class="btn btn-primary" ng-click="updateImage(image)"> Submit </button>
+                <button type="submit" class="btn btn-danger" ng-click="deleteImage(image)"> Delete </button>
+              </div>
+            </div>
           </form>
         </div>
       </div>
