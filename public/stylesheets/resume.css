@@ -1,42 +1,21 @@
-body
-	{ font-family: 'Roboto', sans-serif;
+.resume-container {
+  font-family: 'Roboto', sans-serif;
 	font-weight: 100;
-	background-image: url(Background.jpg);
-	background-repeat: repeat;
-	margin: 10%;
+}
 
-	}
-h1	{ font-family: 'Roboto', sans-serif;
-	font-weight: 800;
-	
-	}
-ul
-	{line-height: 20px;
-	list-style: url(pikabullet.png);
-	}
-#rescontent {
-	webkit-column-count: 2;
-	moz-column-count: 2
-	column-count: 2;
-	}
-#reshead
-	{ font-family: 'Roboto', sans-serif;
+.experience {
+  margin-left: 10px;
+}
 
-	}
-#resleft
-	{ 
-	text-align: right;
+.expanded-list{
+  line-height: 20px;
+}
 
-	}
-#resright 
-	{ line-height: 5px;
-	float: right;
-	text-align: left;
+.employer {
+  font-weight: 500;
+/*	line-height: 10px;*/
+}
 
-	}
-
-.employer
-	{ font-weight: 500;
-	line-height: 10px;
-
-	}
+.location {
+  font-style: italic;
+}
