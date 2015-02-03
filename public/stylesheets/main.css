@@ -1,5 +1,23 @@
-.container {
-  margin-left: 0px;
-  margin-right: 0px; }
+.app-container {
+  padding-top: 50px; }
+
+.image-container {
+  margin-top: 10px;
+  margin-bottom: 30px;
+  display: block;
+  text-align: center; }
+  .image-container.image-repeat {
+    max-width: 400px; }
+
+.navbar .navbar-custom {
+  line-height: 200px; }
+
+.icon-link > a {
+  color: inherit;
+  text-decoration: none;
+  padding-top: 0px;
+  padding-bottom: 0px; }
+
+/*# sourceMappingURL=main.scss.map */
 
 /*# sourceMappingURL=main.css.map */

@@ -9,8 +9,8 @@
 
 .sidebar-nav.sidebar-nav-custom {
   min-width:21.97%;
-  & .sidebar-nav-fixed {
-    top: 10px;
+  &.sidebar-nav-fixed {
+    top: 1000px;
     position:fixed;
   }
   &.ui-scrollfix {
