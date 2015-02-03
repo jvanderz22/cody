@@ -1,51 +1,7 @@
-/*
-Error: Invalid CSS after "10px": expected expression (e.g. 1px, bold), was ";"
-        on line 2 of public/stylesheets/home.css
-
-1: .image-container {
-2:   margin-top: 10px;
-3:   margin-bottom: 30px;
-4:   display: block;
-5:   text-align: center;
-6:   float-right: auto;
-7:   float-left: auto; }
-
-Backtrace:
-public/stylesheets/home.css:2
-/Users/Jordan/.rvm/gems/ruby-2.1.2/gems/sass-3.4.9/lib/sass/scss/parser.rb:1165:in `expected'
-/Users/Jordan/.rvm/gems/ruby-2.1.2/gems/sass-3.4.9/lib/sass/script/lexer.rb:220:in `expected!'
-/Users/Jordan/.rvm/gems/ruby-2.1.2/gems/sass-3.4.9/lib/sass/script/parser.rb:602:in `assert_done'
-/Users/Jordan/.rvm/gems/ruby-2.1.2/gems/sass-3.4.9/lib/sass/script/parser.rb:63:in `parse'
-/Users/Jordan/.rvm/gems/ruby-2.1.2/gems/sass-3.4.9/lib/sass/script/parser.rb:183:in `parse'
-/Users/Jordan/.rvm/gems/ruby-2.1.2/gems/sass-3.4.9/lib/sass/script.rb:27:in `parse'
-/Users/Jordan/.rvm/gems/ruby-2.1.2/gems/sass-3.4.9/lib/sass/engine.rb:1120:in `parse_script'
-/Users/Jordan/.rvm/gems/ruby-2.1.2/gems/sass-3.4.9/lib/sass/engine.rb:710:in `parse_property'
-/Users/Jordan/.rvm/gems/ruby-2.1.2/gems/sass-3.4.9/lib/sass/engine.rb:681:in `parse_property_or_rule'
-/Users/Jordan/.rvm/gems/ruby-2.1.2/gems/sass-3.4.9/lib/sass/engine.rb:647:in `parse_line'
-/Users/Jordan/.rvm/gems/ruby-2.1.2/gems/sass-3.4.9/lib/sass/engine.rb:525:in `build_tree'
-/Users/Jordan/.rvm/gems/ruby-2.1.2/gems/sass-3.4.9/lib/sass/engine.rb:544:in `block in append_children'
-/Users/Jordan/.rvm/gems/ruby-2.1.2/gems/sass-3.4.9/lib/sass/engine.rb:543:in `each'
-/Users/Jordan/.rvm/gems/ruby-2.1.2/gems/sass-3.4.9/lib/sass/engine.rb:543:in `append_children'
-/Users/Jordan/.rvm/gems/ruby-2.1.2/gems/sass-3.4.9/lib/sass/engine.rb:534:in `block in build_tree'
-/Users/Jordan/.rvm/gems/ruby-2.1.2/gems/sass-3.4.9/lib/sass/engine.rb:527:in `each'
-/Users/Jordan/.rvm/gems/ruby-2.1.2/gems/sass-3.4.9/lib/sass/engine.rb:527:in `build_tree'
-/Users/Jordan/.rvm/gems/ruby-2.1.2/gems/sass-3.4.9/lib/sass/engine.rb:544:in `block in append_children'
-/Users/Jordan/.rvm/gems/ruby-2.1.2/gems/sass-3.4.9/lib/sass/engine.rb:543:in `each'
-/Users/Jordan/.rvm/gems/ruby-2.1.2/gems/sass-3.4.9/lib/sass/engine.rb:543:in `append_children'
-/Users/Jordan/.rvm/gems/ruby-2.1.2/gems/sass-3.4.9/lib/sass/engine.rb:396:in `_to_tree'
-/Users/Jordan/.rvm/gems/ruby-2.1.2/gems/sass-3.4.9/lib/sass/engine.rb:368:in `_render_with_sourcemap'
-/Users/Jordan/.rvm/gems/ruby-2.1.2/gems/sass-3.4.9/lib/sass/engine.rb:285:in `render_with_sourcemap'
-/Users/Jordan/.rvm/gems/ruby-2.1.2/gems/sass-3.4.9/lib/sass/exec/sass_scss.rb:396:in `run'
-/Users/Jordan/.rvm/gems/ruby-2.1.2/gems/sass-3.4.9/lib/sass/exec/sass_scss.rb:62:in `process_result'
-/Users/Jordan/.rvm/gems/ruby-2.1.2/gems/sass-3.4.9/lib/sass/exec/base.rb:52:in `parse'
-/Users/Jordan/.rvm/gems/ruby-2.1.2/gems/sass-3.4.9/lib/sass/exec/base.rb:19:in `parse!'
-/Users/Jordan/.rvm/gems/ruby-2.1.2/gems/sass-3.4.9/bin/sass:13:in `<top (required)>'
-/Users/Jordan/.rvm/gems/ruby-2.1.2/bin/sass:23:in `load'
-/Users/Jordan/.rvm/gems/ruby-2.1.2/bin/sass:23:in `<main>'
-/Users/Jordan/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `eval'
-/Users/Jordan/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `<main>'
-*/
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Error: Invalid CSS after \"10px\": expected expression (e.g. 1px, bold), was \";\"\A         on line 2 of public/stylesheets/home.css\A \A 1: .image-container {\A 2:   margin-top: 10px;\A 3:   margin-bottom: 30px;\A 4:   display: block;\A 5:   text-align: center;\A 6:   float-right: auto;\A 7:   float-left: auto; }"; }
+{
+"version": 3,
+"mappings": "AAAA,WAAY;EACV,UAAU,EAAE,KAAK;;AAGnB,SAAU;EACR,WAAW,EAAE,IAAI;EACjB,cAAc,EAAE,IAAI",
+"sources": ["home.scss"],
+"names": [],
+"file": "home.css"
+}

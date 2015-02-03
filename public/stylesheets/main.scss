@@ -1,5 +1,5 @@
 .app-container {
-  padding-top: 50px;
+  padding-top: 75px;
 }
 
 .image-container {
@@ -12,10 +12,6 @@
   }
 }
 
-.navbar .navbar-custom {
-  line-height: 200px;
-}
-
 .icon-link {
   &>a {
     color: inherit;
@@ -24,4 +20,15 @@
     padding-bottom: 0px;
   }
 }
+
+.image-repeat {
+  width: 90%;
+  max-height: 700px;
+}
+
+.youtube-video {
+  width: 80%;
+  height: 350px;
+}
+
 /*# sourceMappingURL=main.scss.map */
