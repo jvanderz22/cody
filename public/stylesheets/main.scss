@@ -1,5 +1,14 @@
+body {
+  background-image: url("/images/background/background.jpg");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 .app-container {
   padding-top: 75px;
+  margin-left: 0px;
 }
 
 .image-container {
