@@ -1,0 +1,118 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files (x86)\\nodejs\\\\node.exe',
+1 verbose cli   'C:\\Program Files (x86)\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   'node-compass' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.36
+4 verbose node symlink C:\Program Files (x86)\nodejs\\node.exe
+5 warn package.json Cody-Bartman-Portfolio@0.0.0 No README data
+6 warn package.json fs@0.0.2 fs is also the name of a node core module.
+7 warn package.json fs@0.0.2 No description
+8 warn package.json fs@0.0.2 No repository field.
+9 warn package.json fs@0.0.2 No README data
+10 warn package.json http@0.0.0 http is also the name of a node core module.
+11 warn package.json http@0.0.0 No description
+12 warn package.json http@0.0.0 No repository field.
+13 warn package.json path@0.4.9 path is also the name of a node core module.
+14 verbose readDependencies using package.json deps
+15 verbose cache add [ 'node-compass@^0.2.3', null ]
+16 verbose cache add name=undefined spec="node-compass@^0.2.3" args=["node-compass@^0.2.3",null]
+17 verbose parsed url { protocol: null,
+17 verbose parsed url   slashes: null,
+17 verbose parsed url   auth: null,
+17 verbose parsed url   host: null,
+17 verbose parsed url   port: null,
+17 verbose parsed url   hostname: null,
+17 verbose parsed url   hash: null,
+17 verbose parsed url   search: null,
+17 verbose parsed url   query: null,
+17 verbose parsed url   pathname: 'node-compass@^0.2.3',
+17 verbose parsed url   path: 'node-compass@^0.2.3',
+17 verbose parsed url   href: 'node-compass@^0.2.3' }
+18 verbose cache add name="node-compass" spec="^0.2.3" args=["node-compass","^0.2.3"]
+19 verbose parsed url { protocol: null,
+19 verbose parsed url   slashes: null,
+19 verbose parsed url   auth: null,
+19 verbose parsed url   host: null,
+19 verbose parsed url   port: null,
+19 verbose parsed url   hostname: null,
+19 verbose parsed url   hash: null,
+19 verbose parsed url   search: null,
+19 verbose parsed url   query: null,
+19 verbose parsed url   pathname: '^0.2.3',
+19 verbose parsed url   path: '^0.2.3',
+19 verbose parsed url   href: '^0.2.3' }
+20 verbose addNamed [ 'node-compass', '^0.2.3' ]
+21 verbose addNamed [ null, '>=0.2.3-0 <0.3.0-0' ]
+22 silly lockFile 95d2da6b-node-compass-0-2-3 node-compass@^0.2.3
+23 verbose lock node-compass@^0.2.3 C:\Users\Carlisle\AppData\Roaming\npm-cache\95d2da6b-node-compass-0-2-3.lock
+24 silly addNameRange { name: 'node-compass',
+24 silly addNameRange   range: '>=0.2.3-0 <0.3.0-0',
+24 silly addNameRange   hasData: false }
+25 verbose request where is /node-compass
+26 verbose request registry https://registry.npmjs.org/
+27 verbose request id ec0f607bbb58171f
+28 verbose url raw /node-compass
+29 verbose url resolving [ 'https://registry.npmjs.org/', './node-compass' ]
+30 verbose url resolved https://registry.npmjs.org/node-compass
+31 verbose request where is https://registry.npmjs.org/node-compass
+32 info trying registry request attempt 1 at 22:23:04
+33 http GET https://registry.npmjs.org/node-compass
+34 http 200 https://registry.npmjs.org/node-compass
+35 silly registry.get cb [ 200,
+35 silly registry.get   { date: 'Tue, 03 Feb 2015 04:23:05 GMT',
+35 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+35 silly registry.get     etag: '"6AWJ92A6RCVOPAN4JBLRZBKG1"',
+35 silly registry.get     'content-type': 'application/json',
+35 silly registry.get     'cache-control': 'max-age=60',
+35 silly registry.get     'content-length': '7980',
+35 silly registry.get     'accept-ranges': 'bytes',
+35 silly registry.get     via: '1.1 varnish',
+35 silly registry.get     age: '0',
+35 silly registry.get     'x-served-by': 'cache-ord1729-ORD',
+35 silly registry.get     'x-cache': 'MISS',
+35 silly registry.get     'x-cache-hits': '0',
+35 silly registry.get     'x-timer': 'S1422937385.831307,VS0,VE33',
+35 silly registry.get     vary: 'Accept',
+35 silly registry.get     'keep-alive': 'timeout=10, max=50',
+35 silly registry.get     connection: 'Keep-Alive' } ]
+36 silly addNameRange number 2 { name: 'node-compass',
+36 silly addNameRange   range: '>=0.2.3-0 <0.3.0-0',
+36 silly addNameRange   hasData: true }
+37 silly addNameRange versions [ 'node-compass',
+37 silly addNameRange   [ '0.0.1', '0.0.2', '0.1.0', '0.2.0', '0.2.1', '0.2.2', '0.2.3' ] ]
+38 verbose addNamed [ 'node-compass', '0.2.3' ]
+39 verbose addNamed [ '0.2.3', '0.2.3' ]
+40 silly lockFile 1bf967af-node-compass-0-2-3 node-compass@0.2.3
+41 verbose lock node-compass@0.2.3 C:\Users\Carlisle\AppData\Roaming\npm-cache\1bf967af-node-compass-0-2-3.lock
+42 silly lockFile c21a04db-e-compass-node-compass-0-2-3-tgz https://registry.npmjs.org/node-compass/-/node-compass-0.2.3.tgz
+43 verbose lock https://registry.npmjs.org/node-compass/-/node-compass-0.2.3.tgz C:\Users\Carlisle\AppData\Roaming\npm-cache\c21a04db-e-compass-node-compass-0-2-3-tgz.lock
+44 verbose addRemoteTarball [ 'https://registry.npmjs.org/node-compass/-/node-compass-0.2.3.tgz',
+44 verbose addRemoteTarball   '147a7abc733920211be1f7a17825c41558dd2906' ]
+45 info retry fetch attempt 1 at 22:23:04
+46 verbose fetch to= C:\Users\Carlisle\AppData\Local\Temp\npm-5708-2sLhY-bJ\registry.npmjs.org\node-compass\-\node-compass-0.2.3.tgz
+47 http GET https://registry.npmjs.org/node-compass/-/node-compass-0.2.3.tgz
+48 http 400 https://registry.npmjs.org/node-compass/-/node-compass-0.2.3.tgz
+49 error fetch failed https://registry.npmjs.org/node-compass/-/node-compass-0.2.3.tgz
+50 silly lockFile c21a04db-e-compass-node-compass-0-2-3-tgz https://registry.npmjs.org/node-compass/-/node-compass-0.2.3.tgz
+51 silly lockFile c21a04db-e-compass-node-compass-0-2-3-tgz https://registry.npmjs.org/node-compass/-/node-compass-0.2.3.tgz
+52 silly lockFile 1bf967af-node-compass-0-2-3 node-compass@0.2.3
+53 silly lockFile 1bf967af-node-compass-0-2-3 node-compass@0.2.3
+54 silly lockFile 95d2da6b-node-compass-0-2-3 node-compass@^0.2.3
+55 silly lockFile 95d2da6b-node-compass-0-2-3 node-compass@^0.2.3
+56 error Error: 400 Bad Request
+56 error     at WriteStream.<anonymous> (C:\Program Files (x86)\nodejs\node_modules\npm\lib\utils\fetch.js:58:12)
+56 error     at WriteStream.emit (events.js:117:20)
+56 error     at evalmachine.<anonymous>:1610:14
+56 error     at C:\Program Files (x86)\nodejs\node_modules\npm\node_modules\graceful-fs\graceful-fs.js:102:5
+56 error     at Object.oncomplete (evalmachine.<anonymous>:108:15)
+57 error If you need help, you may report this *entire* log,
+57 error including the npm and node versions, at:
+57 error     <http://github.com/npm/npm/issues>
+58 error System Windows_NT 6.2.9200
+59 error command "C:\\Program Files (x86)\\nodejs\\\\node.exe" "C:\\Program Files (x86)\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "node-compass"
+60 error cwd C:\Users\Carlisle\cody
+61 error node -v v0.10.36
+62 error npm -v 1.4.28
+63 verbose exit [ 1, true ]
