@@ -97,7 +97,7 @@ app.controller('EditController', function($scope, $http, $q, $sce, Image) {
   }
 })
 
-app.controller('GameController', function($scope, $http) {
+app.controller('GameController', function($scope, $sce, Image) {
   $scope.trustSrc = function(src) {
     return $sce.trustAsResourceUrl(src)
   }
