@@ -66,7 +66,7 @@ app.controller('EditController', function($scope, $http, $q, $sce, Image) {
       $scope.imageCategories = [
         { type: 'Models', images: data[0] },
         { type: 'Photos', images: data[1] },
-        { type: 'Art', images: data[2] }
+        { type: 'Art', images: data[2] },
         { type: 'Game', images: data[3] }
       ]
     })
