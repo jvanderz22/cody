@@ -1,27 +1,31 @@
-<!DOCTYPE html>
-<!-- LOOK AT ME I'M IMPORTANT
-http://angular-ui.github.io/ui-utils/#/scrollfix -->
-<body>
+<div class="image-container" ng-repeat="model in models">
+  <div ng-show="model.video" class='video-container'>
+    <iframe title="YouTube video player"  class="youtube-video"
+      src="{{trustSrc(model.url)}}" frameborder="0" allowfullscreen>
+    </iframe>
   </div>
-    <div class="image-container" ng-repeat="model in models">
-      <div ng-show="model.video" class='video-container'>
-        <iframe title="YouTube video player"  class="youtube-video"
-          src="{{trustSrc(model.url)}}" frameborder="0" allowfullscreen>
-        </iframe>
-      </div>
-      <div ng-hide='model.video'>
-        <img class="image-repeat" src="{{model.url}}"></img>
-      </div>
-    </div>
-    <div class="image-container" ng-repeat="photo in photos">
-      <div ng-show='photo.video' class='video-container'>
-        <iframe title="YouTube video player"  class="youtube-video"
-          src="{{trustSrc(photo.url)}}" frameborder="0" allowfullscreen>
-        </iframe>
-      </div>
-      <div ng-hide='photo.video'>
-        <img class="image-repeat" src="{{photo.url}}"></img>
-      </div>
-    </div>
-	</body>
-</html>
+  <div ng-hide='model.video'>
+    <img class="image-repeat" src="{{model.url}}"></img>
+  </div>
+</div>
+<div class="image-container" ng-repeat="image in art">
+  <div ng-show='image.video' class='video-container'>
+    <iframe title="YouTube video player"  class="youtube-video"
+      src="{{trustSrc(image.url)}}" frameborder="0" allowfullscreen>
+    </iframe>
+  </div>
+  <div ng-hide='photo.video'>
+    <img class="image-repeat" src="{{image.url}}"></img>
+  </div>
+</div>
+<div class="image-container" ng-repeat="image in game">
+  <div ng-show='image.video' class='video-container'>
+    <iframe title="YouTube video player"  class="youtube-video"
+      src="{{trustSrc(image.url)}}" frameborder="0" allowfullscreen>
+    </iframe>
+  </div>
+  <div ng-hide='photo.video'>
+    <img class="image-repeat" src="{{image.url}}"></img>
+  </div>
+</div>
+
