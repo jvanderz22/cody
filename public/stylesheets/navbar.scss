@@ -1,16 +1,27 @@
-.icon-link {
+.nav > .icon-link {
   max-width: 30px;
+  a {
+    &:hover {
+      background-color: #282828;
+    }
+  }
 }
 
+.fa-inverse.fa-hover {
+  &:hover {
+    color: #DCDCDC;
+  }
+}
 .navbar-custom {
-  background-color: orange;
+  background-color: #282828;
   border-style: solid;
   border-bottom-width: 1px;
   border-color: black;
 }
 
 .navbar-text-custom {
-  color: red;
+  font-family: 'Aclonica', sans-serif;
+  color: white;
 }
 
 .navbar-right {
