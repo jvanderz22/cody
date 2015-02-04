@@ -61,8 +61,8 @@ app.controller('EditController', function($scope, $http, $q, $sce, Image) {
     var modelsPromise = Image.getCategoryImages('models')
     var photosPromise = Image.getCategoryImages('photos')
     var artPromise = Image.getCategoryImages('art')
-    var artPromise = Image.getCategoryImages('game')
-    $q.all([modelsPromise, photosPromise, artPromise]).then(function(data) {
+    var gamePromise = Image.getCategoryImages('game')
+    $q.all([modelsPromise, photosPromise, artPromise, gamePromise]).then(function(data) {
       $scope.imageCategories = [
         { type: 'Models', images: data[0] },
         { type: 'Photos', images: data[1] },
