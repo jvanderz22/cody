@@ -1,9 +1,7 @@
 body {
   background-image: url("/images/background/background.jpg");
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  background-repeat: repeat;
+  font-family: 'Roboto', sans-serif;
 }
 
 .app-container {
@@ -16,9 +14,6 @@ body {
   margin-bottom: 30px;
   display: block;
   text-align: center;
-  &.image-repeat {
-    max-width: 400px;
-  }
 }
 
 .icon-link {
@@ -31,7 +26,7 @@ body {
 }
 
 .image-repeat {
-  width: 90%;
+  width: 80%;
   max-height: 700px;
 }
 

@@ -1,8 +1,14 @@
 .icon-link {
   max-width: 30px; }
 
-.navbar .navbar-custom {
-  line-height: 200px; }
+.navbar-custom {
+  background-color: orange;
+  border-style: solid;
+  border-bottom-width: 1px;
+  border-color: black; }
+
+.navbar-text-custom {
+  color: red; }
 
 .navbar-right {
   margin-right: 0px; }
