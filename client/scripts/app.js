@@ -26,7 +26,7 @@ app.config(['$routeProvider',
       })
       .when('/game', {
         controller: 'GameController',
-        templateUrl: 'partials/game.html',
+        templateUrl: 'partials/images.html',
       })
       .when('/about', {
         templateUrl: 'partials/about.html',

@@ -55,17 +55,19 @@ app.controller('EditController', function($scope, $http, $q, $sce, Image) {
     return $sce.trustAsResourceUrl(src)
   }
 
-  $scope.imageTypes = ["models", "photos", "art"]
+  $scope.imageTypes = ["models", "photos", "art", "game"]
   //extract this to a helper class
   getAllImages = function() {
     var modelsPromise = Image.getCategoryImages('models')
     var photosPromise = Image.getCategoryImages('photos')
     var artPromise = Image.getCategoryImages('art')
+    var artPromise = Image.getCategoryImages('game')
     $q.all([modelsPromise, photosPromise, artPromise]).then(function(data) {
       $scope.imageCategories = [
         { type: 'Models', images: data[0] },
         { type: 'Photos', images: data[1] },
         { type: 'Art', images: data[2] }
+        { type: 'Game', images: data[3] }
       ]
     })
   }
@@ -96,7 +98,15 @@ app.controller('EditController', function($scope, $http, $q, $sce, Image) {
 })
 
 app.controller('GameController', function($scope, $http) {
-  var unityObjectUrl = "http://webplayer.unity3d.com/download_webplayer-3.x/3.0/uo/UnityObject2.js";
+  $scope.trustSrc = function(src) {
+    return $sce.trustAsResourceUrl(src)
+  }
+
+  Image.getCategoryImages('game').then(function(images) {
+    $scope.images = images
+  })
+
+  /*var unityObjectUrl = "http://webplayer.unity3d.com/download_webplayer-3.x/3.0/uo/UnityObject2.js";
   if (document.location.protocol == 'https:') {
     unityObjectUrl = unityObjectUrl.replace("http://", "https://ssl-");
   }
@@ -129,5 +139,5 @@ app.controller('GameController', function($scope, $http) {
     });
 
     u.initPlugin($('#unityPlayer')[0], '/assets/submarine.unity3d')
-  })
+  })*/
 })

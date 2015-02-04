@@ -2,7 +2,7 @@ yaml = require('js-yaml')
 fs = require('fs')
 uuid = require('node-uuid')
 
-categories = ['photos', 'models', 'art']
+categories = ['photos', 'models', 'art', 'game']
 imagesFilePath = './data/images.yml'
 
 getImages = () ->
