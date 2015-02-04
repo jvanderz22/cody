@@ -28,6 +28,10 @@ app.config(['$routeProvider',
         controller: 'GameController',
         templateUrl: 'partials/game.html',
       })
+      .when('/about', {
+        templateUrl: 'partials/about.html',
+      })
+
       .when('/edit', {
         controller: 'EditController',
         templateUrl: 'partials/edit.html'
