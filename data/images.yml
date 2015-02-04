@@ -1,0 +1,25 @@
+photos:
+  - id: 5ec8b3b0-9391-11e4-8fc8-c3fdebc94f0e
+    url: "http://www.nexus-wallpaper.com/wp-content/uploads/2013/01/San-Fransico-49ers-Logo-Wallpaper.jpg"
+    ranking: 6
+    category: photos
+    video: false
+models:
+  - id: 6d9b5430-8fbb-11e4-ab1c-b1cf2374cb30
+    url: "https://31.media.tumblr.com/ec135544e5bb23485d8d84ce8484753f/tumblr_n34sydXKDe1rna14mo1_1280.jpg"
+    ranking: 0.1
+  - id: 1a055500-a037-11e4-80f8-0d22614885ae
+    url: //www.youtube.com/embed/RWhEUR0I9fo
+    ranking: 1
+    category: models
+    video: true
+  - id: 92b76f40-8fc2-11e4-857b-1d4a11438223
+    url: "https://33.media.tumblr.com/56aa69c2f2045c4f286fe4d938685342/tumblr_nc0q3yfgqZ1rna14mo1_1280.jpg"
+    ranking: 6
+    category: models
+art:
+  - id: a6e02780-ac1b-11e4-bf51-779b020aea38
+    url: "http://assets.worldwildlife.org/photos/1822/images/portrait_small/Tiger_8.14.2012_Climate_Change_XL_235467.jpg?1345553523"
+    ranking: 2
+    category: art
+    video: false

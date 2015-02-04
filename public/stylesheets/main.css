@@ -1,21 +1,16 @@
 body {
   background-image: url("/images/background/background.jpg");
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover; }
+  background-repeat: repeat;
+  font-family: 'Roboto', sans-serif; }
 
 .app-container {
-  padding-top: 75px;
-  margin-left: 0px; }
+  padding-top: 75px; }
 
 .image-container {
   margin-top: 10px;
   margin-bottom: 30px;
   display: block;
   text-align: center; }
-  .image-container.image-repeat {
-    max-width: 400px; }
 
 .icon-link > a {
   color: inherit;
@@ -24,7 +19,7 @@ body {
   padding-bottom: 0px; }
 
 .image-repeat {
-  width: 90%;
+  width: 80%;
   max-height: 700px; }
 
 .youtube-video {

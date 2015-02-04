@@ -32,6 +32,17 @@ app.controller('PhotographyController', function($scope, $sce, Image) {
   })
 });
 
+
+app.controller('ArtController', function($scope, $sce, Image) {
+  $scope.trustSrc = function(src) {
+    return $sce.trustAsResourceUrl(src)
+  }
+
+  Image.getCategoryImages('art').then(function(images) {
+    $scope.images = images
+  })
+});
+
 app.controller('ResumeController', function($scope, $sce) {
   $scope.trustSrc = function(src) {
     return $sce.trustAsResourceUrl(src)
@@ -44,15 +55,17 @@ app.controller('EditController', function($scope, $http, $q, $sce, Image) {
     return $sce.trustAsResourceUrl(src)
   }
 
-  $scope.imageTypes = ["models", "photos"]
+  $scope.imageTypes = ["models", "photos", "art"]
   //extract this to a helper class
   getAllImages = function() {
     var modelsPromise = Image.getCategoryImages('models')
     var photosPromise = Image.getCategoryImages('photos')
-    $q.all([modelsPromise, photosPromise]).then(function(data) {
+    var artPromise = Image.getCategoryImages('art')
+    $q.all([modelsPromise, photosPromise, artPromise]).then(function(data) {
       $scope.imageCategories = [
         { type: 'Models', images: data[0] },
-        { type: 'Photos', images: data[1] }
+        { type: 'Photos', images: data[1] },
+        { type: 'Art', images: data[2] }
       ]
     })
   }
@@ -80,4 +93,41 @@ app.controller('EditController', function($scope, $http, $q, $sce, Image) {
       getAllImages()
     })
   }
+})
+
+app.controller('GameController', function($scope, $http) {
+  var unityObjectUrl = "http://webplayer.unity3d.com/download_webplayer-3.x/3.0/uo/UnityObject2.js";
+  if (document.location.protocol == 'https:') {
+    unityObjectUrl = unityObjectUrl.replace("http://", "https://ssl-");
+  }
+
+  $.getScript(unityObjectUrl, function() {
+    console.log("loaded")
+    var config = {
+      width: 960,
+      height: 600,
+      params:  { enableDebugging: "0"}
+    };
+
+    var u = new UnityObject2(config);
+    var $missingScreen = $('#unityPlayer').find('.missing');
+    $missingScreen.hide()
+
+    u.observeProgress(function (progress) {
+      if (progress.pluginStatus == 'missing') {
+        $missingScreen.find('a').click(function (e) {
+          e.stopPropagation();
+          e.preventDefault();
+          u.installPlugin();
+          return false;
+        });
+        $missingScreen.show();
+      }
+      if (progress.pluginStatus == 'installed') {
+        $missingScreen.remove();
+      }
+    });
+
+    u.initPlugin($('#unityPlayer')[0], '/assets/submarine.unity3d')
+  })
 })

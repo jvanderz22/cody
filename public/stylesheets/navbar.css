@@ -1,8 +1,20 @@
-.icon-link {
+.nav > .icon-link {
   max-width: 30px; }
+  .nav > .icon-link a:hover {
+    background-color: #282828; }
 
-.navbar .navbar-custom {
-  line-height: 200px; }
+.fa-inverse.fa-hover:hover {
+  color: #DCDCDC; }
+
+.navbar-custom {
+  background-color: #282828;
+  border-style: solid;
+  border-bottom-width: 1px;
+  border-color: black; }
+
+.navbar-text-custom {
+  font-family: 'Aclonica', sans-serif;
+  color: white; }
 
 .navbar-right {
   margin-right: 0px; }
