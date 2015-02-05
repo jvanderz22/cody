@@ -1,7 +1,14 @@
 body {
   background-image: url("/images/background/background.jpg");
   background-repeat: repeat;
+  background-attachment: fixed;
   font-family: 'Roboto', sans-serif; }
+
+h1 {
+  font-family: 'Aclonica', sans-serif;
+  font-size: 50px;
+  color: #282828;
+}
 
 .app-container {
   padding-top: 75px; }
