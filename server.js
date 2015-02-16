@@ -18,7 +18,7 @@ var clientDir = path.join(__dirname, 'client')
 
 app.use(express.favicon("/client/images/favicon/favicon.ico"))
 app.configure(function() {
-  app.set('port', process.env.PORT || process.env.OPENSHIFT_NODEJS_POFT || 3000)
+  app.set('port', process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 3000)
   app.set('ipaddress', process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1")
   app.use(express.favicon())
   app.use(express.logger('dev'))
