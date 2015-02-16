@@ -18,7 +18,8 @@ var clientDir = path.join(__dirname, 'client')
 
 app.use(express.favicon("/client/images/favicon/favicon.ico"))
 app.configure(function() {
-  app.set('port', process.env.PORT || 3000)
+  app.set('port', process.env.PORT || process.env.OPENSHIFT_NODEJS_POFT || 3000)
+  app.set('ipaddress', process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1")
   app.use(express.favicon())
   app.use(express.logger('dev'))
   app.use(express.json());
@@ -54,7 +55,7 @@ var server = http.createServer(app)
 
 reload(server, app)
 
-server.listen(app.get('port'), function(){
+server.listen(app.get('port'), app.get('ipaddress'), function(){
   console.log(process.env.NODE_ENV)
   console.log("Web server listening in %s on port %d", (process.env.NODE_ENV), app.get('port'));
 });
