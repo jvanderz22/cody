@@ -8,17 +8,17 @@ var path = require('path')
 var http = require('http')
 var reload = require('reload')
 var compass = require('node-compass')
-var mongoskin = require('mongoskin')
 var bodyParser = require('body-parser')
+var jsonParser = bodyParser.json()
 var favicon = require('serve-favicon')
 var errorHandler = require('errorhandler')
 
 var serveImage = require('serve-index')
 
+var database_config = require('./server/database_config')
 var image = require('./server/image')
 
 var app = express()
-var db = mongoskin.db('mongodb://@localhost:27017/test', {safe: true})
 
 var clientDir = path.join(__dirname, 'client')
 
@@ -38,23 +38,17 @@ if ('development' == env){
   app.use(compass({cwd: clientDir}))
 }
 
-app.param('collectionName', function(req, res, next, collectName){
-  console.log(collectionName)
-  req.collection = db.collection(collectionName)
-  return next()
-})
-
 app.get('/', function(req, res) {
   console.log("Sending");
   res.sendfile(path.join(clientDir, 'index.html'))
 })
 
-app.post('/api/images', image.post)
-app.delete('/api/images/:id', image.delete)
-app.put('/api/images/:id', image.put)
-app.get('/api/images', image.get)
-app.get('/api/images/:id', image.getSingle)
 
+app.get('/api/images', image.index)
+app.get('/api/images/:id', image.show)
+app.post('/api/images', jsonParser, image.post)
+app.put('/api/images/:id', jsonParser, image.put)
+app.delete('/api/images/:id', jsonParser, image.delete)
 
 var server = http.createServer(app)
 

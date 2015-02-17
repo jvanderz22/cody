@@ -1,134 +1,73 @@
-yaml = require('js-yaml')
-fs = require('fs')
-uuid = require('node-uuid')
+mongoose = require 'mongoose'
+db = mongoose.connection
+
+imageSchema = new mongoose.Schema({
+  url: String
+  ranking: Number
+  category: String
+  video: Boolean
+})
+
+db.once('open', () ->
+  console.log('initializing image schema')
+  mongoose.model('Image', imageSchema)
+)
+
+Image = mongoose.model('Image', imageSchema)
+
+newImage = (url, ranking, category, video = false) ->
+  new Image({
+    url: url,
+    ranking: ranking,
+    category: category,
+    video: video
+  })
 
 categories = ['photos', 'models', 'art', 'game']
-imagesFilePath = './data/images.yml'
-
-getImages = () ->
-  try
-    console.log('attempting yaml get')
-    images = yaml.safeLoad(fs.readFileSync(imagesFilePath))
-    for category in categories
-      unless images[category]?
-        images[category] = []
-    images
-  catch e
-    console.log('yaml get failed')
-    throw 'Unable to load images'
 
 validPost = (category, url, ranking) ->
   return false unless category? and url? and ranking?
   return false unless category in categories
   typeof(ranking) is 'number'
 
-createImage = (url, ranking, category, video = false) ->
+preparedImage = (unpreparedImage) ->
   {
-    id: uuid.v1(),
-    url: url,
-    ranking: ranking,
-    category: category,
-    video: video
+    id: unpreparedImage._id,
+    category: unpreparedImage.category,
+    ranking: unpreparedImage.ranking,
+    url: unpreparedImage.url,
+    video: unpreparedImage.video
   }
 
-createImageWithId = (url, ranking, id, category, video = false) ->
-  {
-    id: id,
-    url: url,
-    ranking: ranking,
-    category: category,
-    video: video
-  }
+preparedImages = (unpreparedImages) ->
+  unpreparedImages.map (image) -> preparedImage(image)
 
-saveYAML = (object) ->
-  console.log('attempting yaml save')
-  yamlObj = yaml.safeDump(object)
-  fs.writeFileSync(imagesFilePath, yamlObj)
-  console.log(yamlObj)
-
-sortBy = (key, a, b) ->
-  return 1 if a[key] > b[key]
-  return -1 if a[key] < b[key]
-  return 0
-
-sortImages = (images, category = null) ->
+exports.index = (req, res, next) ->
+  category = req.query.category
   if category?
-    images[category].sort (a, b) ->
-      sortBy('ranking', a, b)
+    Image.find({category: category}).sort('ranking').exec (err, images) ->
+      res.send({images: preparedImages(images)})
   else
-    for category in categories
-      images[category].sort (a, b) ->
-        sortBy('ranking', a, b)
-
-saveImages = (images, category, newImage) ->
-  images[category].push(newImage)
-  sortImages(images, category)
-  saveYAML(images)
-
-removeImage = (images, id) ->
-  for category in categories
-    for image in images[category]
-      if image['id'] is id
-        indexOfImage = images[category].indexOf(image)
-        images[category].splice(indexOfImage, 1)
-        return images
-  throw 'No image with that id exists'
-
-findImage = (id) ->
-  images = getImages()
-  for category in categories
-    for image in images[category]
-      return image if image['id'] is id
-  throw 'No image with that id exists'
-
-
-exports.get = (req, res) ->
-  try
-    category = req.query.category
-    images = getImages()
-    if category?
-      responseObj = {}
-      if category of images
-        responseObj[category] =  images[category]
-        res.send(responseObj)
-      else
-        responseObj[category] = []
-        res.send(responseObj)
-    else
-      res.send(images)
-  catch e
-    console.log('get failed')
-    res.send(500, e)
+    Image.find().sort('ranking').sort('category ranking').exec (err, images) ->
+      res.send({images: preparedImages(images)})
 
 exports.post = (req, res) ->
-  try
-    images = getImages()
-  catch e
-    console.log('post failed')
-    res.send(500, e)
-    return
-  console.log(req.body)
   category = req.body.category
   url = req.body.url
   ranking = req.body.ranking
   video = if req.body.video? then req.body.video else false
 
   unless validPost(category, url, ranking)
-    res.send(400, 'Valid category, url, and ranking parametes required')
+    res.send(400, 'Valid category, url, and ranking parameters required')
     return
 
-  newImage = createImage(url, ranking, category, video)
-  saveImages(images, category, newImage)
-  res.send(images)
-
+  newImage(url, ranking, category, video).save (err, image) ->
+    if err?
+      res.send(500, 'Unable to save image')
+      return console.error(err)
+    res.send({image: preparedImage(image)})
 
 exports.put = (req, res) ->
-  try
-    images = getImages()
-  catch e
-    res.send(500, e)
-    return
-
   category = req.body.category
   url = req.body.url
   ranking = req.body.ranking
@@ -143,34 +82,42 @@ exports.put = (req, res) ->
     res.send(400, 'Valid category, url, and ranking parametes required')
     return
 
-  try
-    removeImage(images, req.params.id)
-  catch e
-    res.send(404, e)
-    return
-
-  editedImage = createImageWithId(url, ranking, id, category, video)
-  saveImages(images, category, editedImage)
-  res.send(200, editedImage)
+  Image.findById(id, (err, image) ->
+    image.category = category
+    image.url = url
+    image.ranking = ranking
+    image.video = video
+    image.save (err, image) ->
+      if err?
+        res.send(422, 'Unable to save image')
+        console.error(err)
+      else
+        res.send({image: preparedImage(image)})
+  )
 
 exports.delete = (req, res) ->
-  try
-    images = getImages()
-  catch e
-    res.send(500, e)
+  id = req.params.id
+  unless id?
+    res.send(400, "Id parameter required")
     return
+  Image.findById(id, (err, image) ->
+    image.remove (err) ->
+      if err?
+        res.send(422, 'Unable to remove image')
+        console.error(err)
+      else
+        res.send(201)
+  )
 
-  try
-    removeImage(images, req.params.id)
-  catch e
-    res.send(404, e)
+exports.show = (req, res) ->
+  id = req.params.id
+  unless id?
+    res.send(400, "Id parameter required")
     return
-
-  saveYAML(images)
-  res.send(201)
-
-exports.getSingle = (req, res) ->
-  try
-    res.send(200, findImage(req.params.id))
-  catch e
-    res.send(404, e)
+  Image.findById(id, (err, image) ->
+    if err?
+      res.send(422, 'Unable to remove image')
+      console.error(err)
+    else
+      res.send({image: preparedImage(image)})
+  )
