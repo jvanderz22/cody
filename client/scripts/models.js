@@ -13,7 +13,7 @@ app.factory('Image', function($http, $sce) {
     },
 
     getCategoryImages: function(category) {
-      return $http.get('api/images?' + category).
+      return $http.get('api/images?category=' + category).
         then(function(response) {
           images = response.data[category]
           return images
