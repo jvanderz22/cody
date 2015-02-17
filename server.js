@@ -1,42 +1,47 @@
 if (!process.env.NODE_ENV) {
   process.env.NODE_ENV = "development"
 }
+var env = process.env.NODE_ENV
 var coffee = require('coffee-script/register')
 var express = require('express')
 var path = require('path')
 var http = require('http')
 var reload = require('reload')
 var compass = require('node-compass')
+var mongoskin = require('mongoskin')
+var bodyParser = require('body-parser')
+var favicon = require('serve-favicon')
+var errorHandler = require('errorhandler')
+
 var serveImage = require('serve-index')
 
 var image = require('./server/image')
 
 var app = express()
-
+var db = mongoskin.db('mongodb://@localhost:27017/test', {safe: true})
 
 var clientDir = path.join(__dirname, 'client')
 
-app.use(express.favicon("/client/images/favicon/favicon.ico"))
-app.configure(function() {
-  app.set('port', process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 3000)
-  app.set('ipaddress', process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1")
-  app.use(express.favicon())
-  app.use(express.logger('dev'))
-  app.use(express.json());
-  app.use(express.urlencoded());
-  app.use(app.router)
-  app.use("/", express.static(clientDir))
-  app.use(express.static(__dirname + '/public'))
-  app.use(express.static(__dirname + '/bower_components'))
-})
+app.use(favicon("client/images/favicon/favicon.ico"))
+app.set('port', process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 3000)
+app.set('ipaddress', process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1")
+app.use("/", express.static(clientDir))
+app.use(express.static(__dirname + '/public'))
+app.use(express.static(__dirname + '/bower_components'))
 
 
-app.configure('development', function(){
+if ('development' == env){
   app.use(compass({
     project: path.join(__dirname, '/public')
   }))
-  app.use(express.errorHandler());
+  app.use(errorHandler());
   app.use(compass({cwd: clientDir}))
+}
+
+app.param('collectionName', function(req, res, next, collectName){
+  console.log(collectionName)
+  req.collection = db.collection(collectionName)
+  return next()
 })
 
 app.get('/', function(req, res) {
