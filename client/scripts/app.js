@@ -5,7 +5,7 @@ app.config(['$routeProvider',
     $routeProvider
       .when('/home', {
         controller: 'HomeController',
-        templateUrl: 'partials/home.html',
+        templateUrl: 'partials/images.html',
       })
       .when('/3d-models', {
         controller: 'ModelsController',

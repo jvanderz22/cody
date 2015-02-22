@@ -3,17 +3,9 @@ app.controller('HomeController', function($scope, $sce, Image) {
     return $sce.trustAsResourceUrl(src)
   }
 
-  Image.getCategoryImages('models').then(function(models) {
-    $scope.models = models
+  Image.getAllImages().then(function(images) {
+    $scope.images = images
   })
-  Image.getCategoryImages('art').then(function(art) {
-    $scope.art = art
-  })
-
-  Image.getCategoryImages('game').then(function(game) {
-    $scope.game = game
-  })
-
 })
 
 app.controller('ModelsController', function($scope, $sce, Image) {
