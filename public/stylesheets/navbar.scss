@@ -1,9 +1,12 @@
-.nav > .icon-link {
-  max-width: 30px;
-  a {
-    &:hover {
-      background-color: #282828;
-    }
+.icon-link {
+  max-width: 35px;
+}
+
+.btn-link-custom {
+  line-height: 0px;
+  &:focus, &:active:focus {
+    text-decoration: none;
+    outline: 0px;
   }
 }
 
@@ -16,12 +19,18 @@
   background-color: #282828;
   border-style: solid;
   border-bottom-width: 1px;
-  border-color: black;
+  border-color: #282828;
 }
 
 .navbar-text-custom {
   font-family: 'Aclonica', sans-serif;
   color: white;
+  a {
+    color: white;
+    &:hover {
+      text-decoration: none;
+    }
+  }
 }
 
 .navbar-right {

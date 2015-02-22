@@ -9,7 +9,8 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css styles/main.css -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.1/angular.js"></script>
-    <script type="text/javascript" src="angular-ui-utils/ui-utils.js"></script>
+    <script type="text/javascript" src="angular-ui-utils/ui-utils.min.js"></script>
+    <script type="text/javascript" src="angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"> </link>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"></link>
     <link rel="stylesheet" href="stylesheets/sidebar.css"> </link>
@@ -21,13 +22,14 @@
     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'></link>
     <link href='http://fonts.googleapis.com/css?family=Aclonica' rel='stylesheet' type='text/css'></link>
 
-    <script src="lightbox/js/jquery-1.10.2.min.js"></script>
+    <!--<script src="lightbox/js/jquery-1.10.2.min.js"></script>-->
 <!-- <link rel="stylesheet" href="lightbox/css/lightbox.css"> </link>
     <script src="lightbox/js/lightbox-2.6.min.js"></script> -->
     <script src="angular-route.js"></script>
     <script src="scripts/app.js"></script>
     <script src="scripts/controllers.js"></script>
     <script src="scripts/models.js"></script>
+    <script src="scripts/directives.js"></script>
 
     <!--<script src="scripts/directives/directives.js"></script> -->
     <!-- endbuild -->
@@ -39,18 +41,23 @@
       <div class="container-fluid">
 
         <div class="nav-header">
-          <p class="navbar-text navbar-text-custom">CODY BARTMAN</p>
+          <p class="navbar-text navbar-text-custom">
+            <a href="#/home"> CODY BARTMAN </a>
+            <button class="pull-right btn btn-link btn-link-custom" href="https://www.facebook.com/cody.m.bartman" target="_blank" responsive-hide ng-hide="responsiveShow()" ng-click="toggleElement('.navbar-collapse-menu')">
+              <i class="fa fa-bars fa-inverse fa-lg fa-hover"> </i>
+            </button>
+          </p>
         </div>
 
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li class="icon-link" >
-              <a href="https://www.facebook.com/cody.m.bartman" target="_blank">
-                <i class="fa fa-facebook fa-inverse fa-lg fa-hover"> </i>
+            <li class="icon-link-container">
+              <a href="https://www.facebook.com/cody.m.bartman" target="_blank" class="icon-link">
+                <i class="fa fa-facebook fa-inverse fa-lg fa-hover"></i>
               </a>
             </li>
 
-            <li class="icon-link">
+            <li class="icon-link-container">
               <a href="mailto:hbartmac@ferris.edu" class="icon-link">
                 <i class="fa fa-envelope fa-inverse fa-lg fa-hover"></i>
               </a>
@@ -61,12 +68,32 @@
     </nav>
 
     <div class="container app-container">
+      <div class="sidebar-nav sidebar-nav-mobile" ng-hide="hideNavbar" responsive-dropdown-toggle >
+        <ul class="nav nav-stacked">
+          <li class="sidebar-link-mobile"> <a href="#/home"> Home </a> </li>
+          <li class="sidebar-link-mobile"> <a href="#/3d-models"> 3D Models </a> </li>
+          <li class="sidebar-link-mobile"> <a href="#/2d-art"> 2D Art </a> </li>
+          <li class="sidebar-link-mobile"> <a href="#/game"> Game Design </a> <li>
+          <li class="sidebar-link-mobile"> <a href="#/resume"> Resume </a> </li>
+          <li class="sidebar-link-mobile"> <a href="#/about"> About </a> </li>
+          <li class="sidebar-link-mobile icon-link-container icon-link-container-mobile">
+            <a href="https://www.facebook.com/cody.m.bartman" target="_blank" class="icon-link-mobile">
+              <i class="fa fa-facebook fa-inverse fa-lg fa-hover"></i>
+            </a>
+            <a href="mailto:hbartmac@ferris.edu" class="icon-link-mobile">
+              <i class="fa fa-envelope fa-inverse fa-lg fa-hover"></i>
+            </a>
+          </li>
+
+        </ul>
+      </div>
+
       <div class="row">
-        <div class = "col-xs-4 col-md-3">
-          <div class="sidebar-nav sidebar-nav-custom" id="sidebar-nav" ui-scrollfix="+30">
+        <div class = "col-xs-0 col-sm-4 col-md-3">
+          <div class="sidebar-nav sidebar-nav-custom" id="sidebar-nav" ui-scrollfix="+30" responsive-hide ng-hide="responsiveBreak()">
             <ul class="nav nav-pills nav-stacked">
               <li class="navbar-text">
-                <img style="height: 200px; width: 200px;" src="images/face/homeface.jpg">
+                <img class="face-img"style="height: 200px; width: 200px;" src="images/face/homeface.jpg">
               </li>
               <li class="sidebar-link"> <a href="#/home"> Home </a> </li>
               <li class="sidebar-link"> <a href="#/3d-models"> 3D Models </a> </li>
@@ -74,26 +101,17 @@
               <li class="sidebar-link"> <a href="#/game"> Game Design </a> <li>
               <li class="sidebar-link"> <a href="#/resume"> Resume </a> </li>
               <li class="sidebar-link"> <a href="#/about"> About </a> </li>
-               <!--<a class="brand" href="#"> Title </a>
-              <li class="dropdown" ng-controller="DropdownCtrl">
-                <a class="dropdown-toggle"> Photography
-                  <b class="caret"> </b>
-                </a>
-                <ul class="dropdown-menu">
-                  <li ng-repeat="choice in items">
-                    <a> {{choice}} </a>
-                  </li>
-                </ul>
-              </li>-->
-              <!--<li> <a href="#/2d-art"> 2D Art </a> </li>-->
            </ul>
           </div>
         </div>
-
-        <div class="col-xs-8 col-md-9" id="content">
+        <div class="col-xs-12 col-sm-8 col-md-9" id="content">
           <div ng-view> </div>
         </div>
       </div>
     </div>
   </body>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 </html>

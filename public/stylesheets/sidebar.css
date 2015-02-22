@@ -1,7 +1,9 @@
-.nav > .sidebar-link a {
-  color: #282828; }
-  .nav > .sidebar-link a:hover {
-    background-color: #DCDCDC; }
+.nav > .sidebar-link {
+  font-family: 'Roboto', sans-serif; }
+  .nav > .sidebar-link a {
+    color: #282828; }
+    .nav > .sidebar-link a:hover {
+      background-color: #DCDCDC; }
 
 .sidebar-nav.sidebar-nav-custom {
   min-width: 21.97%;
@@ -16,5 +18,27 @@
     .sidebar-nav.sidebar-nav-custom.ui-scrollfix {
       position: relative;
       top: auto; } }
+.sidebar-nav-mobile {
+  background-color: #282828;
+  border-style: solid;
+  border-bottom-width: 1px;
+  border-color: #282828;
+  position: fixed;
+  z-index: 1000;
+  right: 0px;
+  top: 51px;
+  padding: 20px;
+  height: 100%; }
+
+.sidebar-link-mobile > .icon-link-mobile {
+  display: inline;
+  padding-right: 3px; }
+
+.nav > .icon-link-container-mobile {
+  margin-top: 8px; }
+
+.face-img {
+  height: 200px;
+  width: 200px; }
 
 /*# sourceMappingURL=sidebar.css.map */

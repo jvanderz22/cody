@@ -1,4 +1,4 @@
-var app = angular.module('codyApp',['ngRoute', 'ui.utils']);
+var app = angular.module('codyApp',['ngRoute', 'ui.utils', 'ui.bootstrap']);
 
 app.config(['$routeProvider',
   function($routeProvider) {

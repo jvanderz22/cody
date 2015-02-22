@@ -1,21 +1,7 @@
 body {
   background-image: url("/images/background/background.jpg");
   background-repeat: repeat;
-  background-attachment: fixed;
   font-family: 'Roboto', sans-serif; }
-
-h1 {
-  font-family: 'Aclonica', sans-serif;
-  font-size: 50px;
-  color: #282828;
-}
-
-h2 {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 800;
-  font-size: 35px;
-  color: #282828;
-}
 
 .app-container {
   padding-top: 75px; }
@@ -26,11 +12,13 @@ h2 {
   display: block;
   text-align: center; }
 
-.icon-link > a {
+.nav > .icon-link-container > a {
   color: inherit;
   text-decoration: none;
-  padding-top: 0px;
-  padding-bottom: 0px; }
+  padding-top: 15px;
+  padding-bottom: 15px; }
+  .nav > .icon-link-container > a:hover {
+    background-color: #282828; }
 
 .image-repeat {
   width: 80%;
@@ -39,6 +27,9 @@ h2 {
 .youtube-video {
   width: 80%;
   height: 350px; }
+
+.text-paragraphs {
+  max-width: 70%; }
 
 /*# sourceMappingURL=main.scss.map */
 
