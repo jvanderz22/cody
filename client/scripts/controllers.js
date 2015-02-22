@@ -9,6 +9,7 @@ app.controller('HomeController', function($scope, $sce, Image) {
 })
 
 app.controller('ModelsController', function($scope, $sce, Image) {
+  $scope.title = "3D Models"
 	$scope.trustSrc = function(src) {
     return $sce.trustAsResourceUrl(src)
   }
@@ -20,6 +21,7 @@ app.controller('ModelsController', function($scope, $sce, Image) {
 
 
 app.controller('PhotographyController', function($scope, $sce, Image) {
+  $scope.title = "Photography"
   $scope.trustSrc = function(src) {
     return $sce.trustAsResourceUrl(src)
   }
@@ -31,6 +33,7 @@ app.controller('PhotographyController', function($scope, $sce, Image) {
 
 
 app.controller('ArtController', function($scope, $sce, Image) {
+  $scope.title = "2D Models"
   $scope.trustSrc = function(src) {
     return $sce.trustAsResourceUrl(src)
   }
@@ -111,6 +114,7 @@ app.controller('EditController', function($scope, $http, $q, $sce, Image) {
 })
 
 app.controller('GameController', function($scope, $sce, Image) {
+  $scope.title = "Game Design"
   $scope.trustSrc = function(src) {
     return $sce.trustAsResourceUrl(src)
   }

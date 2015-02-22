@@ -30,6 +30,10 @@ body {
   .nav > .icon-link-container > a:hover {
     background-color: #282828; }
 
+.page-title {
+  font-family: 'Aclonica', sans-serif;
+  padding-bottom: 10px; }
+
 .image-repeat {
   width: 80%;
   max-height: 700px; }
@@ -44,7 +48,10 @@ body {
 .image-description {
   font-family: 'Roboto', sans-serif;
   font-weight: 100;
-  padding-top: 10px; }
+  padding-top: 10px;
+  text-align: left;
+  margin-left: 10%;
+  margin-right: 10%; }
 
 /*# sourceMappingURL=main.scss.map */
 

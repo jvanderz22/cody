@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 	<body>
     <div class="image-container" ng-repeat="image in images">
+      <h3 class="page-title" ng-show="title">
+        {{title}}
+      </h3>
+
       <div ng-show="image.video" class='video-container'>
         <iframe title="YouTube video player"  class="youtube-video"
           src="{{trustSrc(image.url)}}" frameborder="0" allowfullscreen>
