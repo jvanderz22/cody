@@ -47,6 +47,10 @@ app.directive('responsiveDropdownToggle', [ '$window', function ($window) {
         scope.hideNavbar = !scope.hideNavbar
       })
 
+      scope.$on('$routeChangeSuccess', function(path) {
+        scope.hideNavbar = true
+      })
+
       var win = angular.element($window);
       win.bind('resize', function (e) {
         if (scope.hideNavbar == false) {
