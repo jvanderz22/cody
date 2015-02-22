@@ -17,7 +17,7 @@ app.directive('responsiveHide', [ '$window', function($window) {
 
       scope.responsiveShow = function() {
         windowWidth = $window.innerWidth
-        if (windowWidth > breakpoint)  {
+        if (windowWidth >= breakpoint)  {
           return true
         }
         else {
@@ -54,7 +54,7 @@ app.directive('responsiveDropdownToggle', [ '$window', function ($window) {
       var win = angular.element($window);
       win.bind('resize', function (e) {
         if (scope.hideNavbar == false) {
-          if ($window.innerWidth > breakpoint) {
+          if ($window.innerWidth >= breakpoint) {
             scope.hideNavbar = true
             scope.$apply();
           }

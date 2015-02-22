@@ -51,7 +51,7 @@ app.controller('ResumeController', function($scope, $sce, $window) {
 	$scope.resume = "/images/resume/resume.pdf";
 
   setMobileResume = function() {
-    if ($window.innerWidth > breakpoint) {
+    if ($window.innerWidth >= breakpoint) {
       $scope.mobileResume = false
     } else {
       $scope.mobileResume = true
