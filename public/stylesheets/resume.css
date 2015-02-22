@@ -13,20 +13,12 @@ h2 {
 	color: #282828;
 }
 
-.test {
-	font-family: 'Aclonica', sans-serif;
-	font-weight: 800;
-}
 .experience {
   margin-left: 10px;
 }
 
-.expanded-list{
+.expanded-line{
   line-height: 20px;
-}
-
-.employer {
-  
 }
 
 .location {

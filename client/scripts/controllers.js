@@ -48,11 +48,27 @@ app.controller('ArtController', function($scope, $sce, Image) {
   })
 });
 
-app.controller('ResumeController', function($scope, $sce) {
+app.controller('ResumeController', function($scope, $sce, $window) {
+  var breakpoint = 768
   $scope.trustSrc = function(src) {
     return $sce.trustAsResourceUrl(src)
   }
 	$scope.resume = "/images/resume/resume.pdf";
+
+  setMobileResume = function() {
+    if ($window.innerWidth > breakpoint) {
+      $scope.mobileResume = false
+    } else {
+      $scope.mobileResume = true
+    }
+  }
+
+  setMobileResume()
+
+  var win = angular.element($window)
+  win.bind('resize', function(e) {
+    setMobileResume()
+  })
 })
 
 app.controller('EditController', function($scope, $http, $q, $sce, Image) {

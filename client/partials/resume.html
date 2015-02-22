@@ -1,20 +1,114 @@
 <!doctype html>
 <div class="resume-container">
-
   <div id="resume-header">
     <h1> RESUME </h1>
-    <a href="cody_bartman_resume.pdf" download> Download PDF  </a>
+    <a href="cody_bartman_resume.pdf" download> Download PDF Copy </a>
   </div>
 
-  <div class="row">
-    <div class="col-xs-4" style="border-style-right:solid; border-width:5px; border-color:gray;">
-      <div class="skills">
-        <h2>EDUCATION</h2>
+  <div ng-hide="mobileResume">
+    <div class="row">
+      <div class="col-xs-5 col-lg-4" style="border-style-right:solid; border-width:5px; border-color:gray;">
+        <div class="skills">
+          <h2>EDUCATION</h2>
+          <div class="experience">
+            <div><strong>Ferris State University</strong></div>
+            <div><em>Expected graduation: Summer 2015</em></div>
+            <div>Digital Animation and Game Design</div>
+            <div class="location">Grand Rapids, MI</div>
+          </div>
+          <br />
+
+         <div class="experience">
+            <div><strong>Saxion University of Applied Sciences</strong></div>
+            <div>2013</div>
+            <div class="location">Enschede, Netherlands</div>
+          </div>
+
+          <div>
+            <h2>SKILLS</h2>
+            <ul class="skills">
+              <li></li>
+              <li>Rigging</li>
+              <li>Animation</li>
+              <li>Texturing</li>
+              <li>Hard Body Modeling</li>
+              <li>Project Management</li>
+              <li>Written and Verbal Communication</li>
+              <li>Remote Collaboration</li>
+            </ul>
+          </div>
+
+          <div>
+            <h2>SOFTWARE</h2>
+            <ul class="skills">
+              <li>3ds Max</li>
+              <li>Maya</li>
+              <li>ZBrush</li>
+              <li>Adobe Photoshop</li>
+              <li>Unreal Engine</li>
+              <li>Unity3D</li>
+              <li>3d-coat</li>
+              <li>Adobe After Effects</li>
+              <li>Adobe Premiere</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-xs-7 col-lg-8">
+        <h2>EXPERIENCE</h2>
+
         <div class="experience">
-          <div><strong>Ferris State University</strong></div>
-         <div><em>Expected graduation: Summer 2015</em></div>
-          <div>Digital Animation and Game Design</div>
-         <div class="location">Grand Rapids, MI</div>
+          <div><strong>Game Designer</strong> | 2014—Present</div>
+          <div class="employer">Linger</div>
+          <div class="location">Grand Rapids, MI</div>
+          <ul class="expanded-line">
+            <li>Designing game level in Unreal Engine</li>
+            <li>Implementing effects such as snow, fog, and time of day</li>
+            <li>Creating coniferous environment, including a forest, mountians, and other flora</li>
+            <li>Collaborating remotely and in person to design and plan the game and its assets</li>
+          </ul>
+        </div>
+
+        <div class="experience">
+          <div><strong>Lead 3D Artist</strong> | 2013 </div>
+          <div class="employer">Sonic Sprint Submarine</div>
+          <div class="location">Enschede, Netherlands</div>
+          <ul class="expanded-line">
+            <li>Collaborated with five others to create a complete video game</li>
+            <li>Modeled the game's 3D assets</li>
+            <li>Created textures in 3d-coat and Photoshop</li>
+            <li>Designed game level in Unity</li>
+            <li>Animated finished models</li>
+          </ul>
+        </div>
+        <div class="experience">
+          <div><strong>Contractor</strong> | 2012—Present</div>
+          <div class="employer">Grandview Services</div>
+          <div class="location">Coopersville, MI</div>
+          <ul class="expanded-line">
+            <li>Inspected finished projects to guarantee customer satisfaction and high quality work</li>
+            <li>Supervised and trained new hires</li>
+            <li>Installed roofs, siding, and windows</li>
+            <li>Repaired housing infrastructure and water damage</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- this is a stupid and awful way to break these two sections up, obviously.
+    As changes are made to the original version make sure to copy them here
+    and reorder approriately. Or find a real solution to the problem instead. -->
+
+  <div ng-show="mobileResume">
+    <div class="skills-mobile">
+      <h2>EDUCATION</h2>
+      <div class="experience">
+        <div><strong>Ferris State University</strong></div>
+        <div><em>Expected graduation: Summer 2015</em></div>
+        <div>Digital Animation and Game Design</div>
+        <div class="location">Grand Rapids, MI</div>
       </div>
       <br />
 
@@ -24,9 +118,46 @@
         <div class="location">Enschede, Netherlands</div>
       </div>
 
+      <h2>EXPERIENCE</h2>
+      <div class="experience">
+        <div><strong>Game Designer</strong> | 2014—Present</div>
+        <div class="employer">Linger</div>
+        <div class="location">Grand Rapids, MI</div>
+        <ul class="expanded-line">
+          <li>Designing game level in Unreal Engine</li>
+          <li>Implementing effects such as snow, fog, and time of day</li>
+          <li>Creating coniferous environment, including a forest, mountians, and other flora</li>
+          <li>Collaborating remotely and in person to design and plan the game and its assets</li>
+        </ul>
+      </div>
+
+      <div class="experience">
+        <div><strong>Lead 3D Artist</strong> | 2013 </div>
+        <div class="employer">Sonic Sprint Submarine</div>
+        <div class="location">Enschede, Netherlands</div>
+        <ul class="expanded-line">
+          <li>Collaborated with five others to create a complete video game</li>
+          <li>Modeled the game's 3D assets</li>
+          <li>Created textures in 3d-coat and Photoshop</li>
+          <li>Designed game level in Unity</li>
+          <li>Animated finished models</li>
+        </ul>
+      </div>
+      <div class="experience">
+        <div><strong>Contractor</strong> | 2012—Present</div>
+        <div class="employer">Grandview Services</div>
+        <div class="location">Coopersville, MI</div>
+        <ul class="expanded-line">
+          <li>Inspected finished projects to guarantee customer satisfaction and high quality work</li>
+          <li>Supervised and trained new hires</li>
+          <li>Installed roofs, siding, and windows</li>
+          <li>Repaired housing infrastructure and water damage</li>
+        </ul>
+      </div>
+
+      <div>
         <h2>SKILLS</h2>
-        <ul class="skills">
-          <li></li>
+        <ul class="skills-mobile">
           <li>Rigging</li>
           <li>Animation</li>
           <li>Texturing</li>
@@ -34,10 +165,12 @@
           <li>Project Management</li>
           <li>Written and Verbal Communication</li>
           <li>Remote Collaboration</li>
-        </ul> 
+        </ul>
+      </div>
 
+      <div>
         <h2>SOFTWARE</h2>
-        <ul class="skills">
+        <ul class="skills-mobile">
           <li>3ds Max</li>
           <li>Maya</li>
           <li>ZBrush</li>
@@ -48,50 +181,6 @@
           <li>Adobe After Effects</li>
           <li>Adobe Premiere</li>
         </ul>
-
-
-      </div>
-    </div>
-
-    <div class="col-xs-8">
-      <h2>EXPERIENCE</h2>
-
-      <div class="experience">
-        <div><strong>Game Designer</strong> | 2014—Present</div>
-        <div class="employer">Linger</div>
-        <div class="location">Grand Rapids, MI</div>
-        <ul class="expanded-list">
-          <li>Designing game level in Unreal Engine</li>
-          <li>Implementing effects such as snow, fog, and time of day</li>
-          <li>Creating coniferous environment, including a forest, mountians, and other flora</li>
-          <li>Collaborating remotely and in person to design and plan the game and its assets</li>
-        </ul>    
-      </div>      
-      <div class="experience">
-        <div><strong>Lead 3D Artist</strong> | 2013 </div>
-        <div class="employer">Sonic Sprint Submarine</div>
-        <div class="location">Enschede, Netherlands</div>
-        <ul class="expanded-list">
-          <li>Collaborated with five others to create a complete video game</li>
-          <li>Modeled the game's 3D assets</li>
-          <li>Created textures in 3d-coat and Photoshop</li>
-          <li>Designed game level in Unity</li>
-          <li>Animated finished models</li>
-        </ul>
-      </div>
-        
-       <div class="experience">   
-        <div><strong>Contractor</strong> | 2012—Present</div>
-        <div class="employer">Grandview Services</div>
-        <div class="location">Coopersville, MI</div>
-        <ul class="expanded-list">
-          <li>Inspected finished projects to guarantee customer satisfaction and high quality work</li>
-          <li>Supervised and trained new hires</li>
-          <li>Installed roofs, siding, and windows</li>
-          <li>Repaired housing infrastructure and water damage</li>
-        </ul>
-      </div>
-
       </div>
     </div>
   </div>
