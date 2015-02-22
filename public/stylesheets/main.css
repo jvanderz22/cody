@@ -1,8 +1,18 @@
 body {
   background-image: url("/images/background/background.jpg");
   background-repeat: repeat;
-  font-family: 'Roboto', sans-serif; }
+  font-family: 'Roboto', sans-serif;
+  -webkit-animation-delay: 0.1s;
+  -webkit-animation-name: fontfix;
+  -webkit-animation-duration: 0.1s;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-timing-function: linear; }
 
+@-webkit-keyframes fontfix {
+  from {
+    opacity: 1; }
+  to {
+    opacity: 1; } }
 .app-container {
   padding-top: 75px; }
 
@@ -30,6 +40,11 @@ body {
 
 .text-paragraphs {
   max-width: 70%; }
+
+.image-description {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
+  padding-top: 10px; }
 
 /*# sourceMappingURL=main.scss.map */
 
