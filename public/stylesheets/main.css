@@ -1,6 +1,7 @@
 body {
   background-image: url("/images/background/background.jpg");
   background-repeat: repeat;
+  background-attachment: fixed;
   font-family: 'Roboto', sans-serif;
   -webkit-animation-delay: 0.1s;
   -webkit-animation-name: fontfix;
