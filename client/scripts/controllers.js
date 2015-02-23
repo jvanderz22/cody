@@ -33,7 +33,7 @@ app.controller('PhotographyController', function($scope, $sce, Image) {
 
 
 app.controller('ArtController', function($scope, $sce, Image) {
-  $scope.title = "2D Models"
+  $scope.title = "2D Art"
   $scope.trustSrc = function(src) {
     return $sce.trustAsResourceUrl(src)
   }
